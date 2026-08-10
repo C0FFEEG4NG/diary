@@ -178,6 +178,13 @@ hr {
 }
 
 /* ================================
+   Font Override Test
+   ================================ */
+* {
+  font-family: 'Matcha Mint', sans-serif !important;
+}
+
+/* ================================
    Reduced Motion
    ================================ */
 @media (prefers-reduced-motion: reduce) {
