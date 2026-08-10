@@ -8,11 +8,19 @@
 }
 
 /* ================================
-   Custom Font
+   Custom Fonts
    ================================ */
 @font-face {
   font-family: 'Matcha Mint';
   src: url('Matcha Mint.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cheesy Milky';
+  src: url('Cheesy Milky.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -30,7 +38,7 @@
   --line:           rgba(255, 255, 255, 0.08);
 
   --font-display: 'Matcha Mint', 'Helvetica Neue', sans-serif;
-  --font-body:    'Matcha Mint', 'Helvetica Neue', sans-serif;
+  --font-body:    'Cheesy Milky', 'Helvetica Neue', sans-serif;
 
   --space-xs:  0.25rem;
   --space-sm:  0.5rem;
@@ -73,14 +81,20 @@ h5 { font-size: 1.1rem; }
 h6 { font-size: 1rem; }
 
 p {
+  font-family: var(--font-body);
   color: var(--text-primary);
   margin-bottom: var(--space-md);
   max-width: 68ch;
 }
 
 small {
+  font-family: var(--font-body);
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+sub, sup {
+  font-family: var(--font-body);
 }
 
 strong, b {
@@ -97,6 +111,7 @@ em, i {
    Links
    ================================ */
 a {
+  font-family: var(--font-body);
   color: var(--text-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -112,6 +127,7 @@ a:hover {
    Lists
    ================================ */
 ul, ol {
+  font-family: var(--font-body);
   color: var(--text-primary);
   padding-left: var(--space-lg);
   margin-bottom: var(--space-md);
@@ -125,6 +141,7 @@ li {
    Blockquote
    ================================ */
 blockquote {
+  font-family: var(--font-body);
   border-left: 3px solid var(--accent);
   padding-left: var(--space-md);
   margin: var(--space-lg) 0;
@@ -175,13 +192,6 @@ hr {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
-}
-
-/* ================================
-   Font Override Test
-   ================================ */
-* {
-  font-family: 'Matcha Mint', sans-serif !important;
 }
 
 /* ================================
