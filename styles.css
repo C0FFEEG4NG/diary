@@ -8,6 +8,17 @@
 }
 
 /* ================================
+   Custom Font
+   ================================ */
+@font-face {
+  font-family: 'Matcha Mint';
+  src: url('Matcha Mint.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================================
    Root Variables
    ================================ */
 :root {
@@ -18,8 +29,8 @@
   --accent:         #6e6e6e;
   --line:           rgba(255, 255, 255, 0.08);
 
-  --font-display: 'Inter', 'Helvetica Neue', sans-serif;
-  --font-body:    'Inter', 'Helvetica Neue', sans-serif;
+  --font-display: 'Matcha Mint', 'Helvetica Neue', sans-serif;
+  --font-body:    'Matcha Mint', 'Helvetica Neue', sans-serif;
 
   --space-xs:  0.25rem;
   --space-sm:  0.5rem;
