@@ -1,206 +1,53 @@
 /* ================================
-   Base Reset
+   Content Warning Overlay
    ================================ */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* ================================
-   Custom Fonts
-   ================================ */
-@font-face {
-  font-family: 'Matcha Mint';
-  src: url('Matcha Mint.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cheesy Milky';
-  src: url('Cheesy Milky.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ================================
-   Root Variables
-   ================================ */
-:root {
-  --bg-dark:    #1a1a1a;
-  --bg-light:   #2e2e2e;
-  --text-primary:   #ffffff;
-  --text-muted:     #b0b0b0;
-  --accent:         #6e6e6e;
-  --line:           rgba(255, 255, 255, 0.08);
-
-  --font-display: 'Matcha Mint', 'Helvetica Neue', sans-serif;
-  --font-body:    'Cheesy Milky', 'Helvetica Neue', sans-serif;
-
-  --space-xs:  0.25rem;
-  --space-sm:  0.5rem;
-  --space-md:  1rem;
-  --space-lg:  2rem;
-  --space-xl:  4rem;
-}
-
-/* ================================
-   Body & Background
-   ================================ */
-body {
-  background: linear-gradient(160deg, var(--bg-dark) 0%, var(--bg-light) 100%);
-  background-attachment: fixed;
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.7;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ================================
-   Typography
-   ================================ */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: var(--space-md);
-}
-
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
-h3 { font-size: clamp(1.2rem, 2.5vw, 1.75rem); }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.1rem; }
-h6 { font-size: 1rem; }
-
-p {
-  font-family: var(--font-body);
-  color: var(--text-primary);
-  margin-bottom: var(--space-md);
-  max-width: 68ch;
-}
-
-small {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-sub, sup {
-  font-family: var(--font-body);
-}
-
-strong, b {
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-em, i {
-  font-style: italic;
-  color: var(--text-muted);
-}
-
-/* ================================
-   Links
-   ================================ */
-a {
-  font-family: var(--font-body);
-  color: var(--text-primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--accent);
-  transition: opacity 0.2s ease;
-}
-
-a:hover {
-  opacity: 0.7;
-}
-
-/* ================================
-   Lists
-   ================================ */
-ul, ol {
-  font-family: var(--font-body);
-  color: var(--text-primary);
-  padding-left: var(--space-lg);
-  margin-bottom: var(--space-md);
-}
-
-li {
-  margin-bottom: var(--space-xs);
-}
-
-/* ================================
-   Blockquote
-   ================================ */
-blockquote {
-  font-family: var(--font-body);
-  border-left: 3px solid var(--accent);
-  padding-left: var(--space-md);
-  margin: var(--space-lg) 0;
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-/* ================================
-   Code
-   ================================ */
-code {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 0.875em;
-  background: rgba(255, 255, 255, 0.07);
-  padding: 0.15em 0.4em;
-  border-radius: 4px;
-  color: var(--text-primary);
-}
-
-pre {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: var(--space-md);
-  overflow-x: auto;
-  margin-bottom: var(--space-md);
-}
-
-pre code {
-  background: none;
-  padding: 0;
-}
-
-
-/* ================================
-   Dividers
-   ================================ */
-hr {
-  border: none;
-  border-top: 1px solid var(--line);
-  margin: var(--space-lg) 0;
-}
-
-/* ================================
-   Layout Helpers
-   ================================ */
-.container {
+#warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
+  height: 100%;
+  background: linear-gradient(160deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-/* ================================
-   Reduced Motion
-   ================================ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    transition: none !important;
-    animation: none !important;
-  }
+#warning-box {
+  max-width: 480px;
+  padding: var(--space-xl);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+#warning-box h2 {
+  margin-bottom: 0;
+}
+
+#warning-box p {
+  color: var(--text-muted);
+  margin: 0 auto;
+}
+
+#warning-box button {
+  font-family: var(--font-body);
+  background: var(--accent);
+  color: var(--text-primary);
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  font-size: 1rem;
+  margin-top: var(--space-sm);
+}
+
+#warning-box button:hover {
+  opacity: 0.7;
 }
